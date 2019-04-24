@@ -1,6 +1,9 @@
 """
+Author: Abhishek Kulkarni
+
 Problem: 
 	Write function to find all possible combinations of given coins that adds upto given sum.
+
 """
  
 def get_change(amount, coins, change):
