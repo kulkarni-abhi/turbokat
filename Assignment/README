@@ -103,8 +103,9 @@ Start Application
 -----------------
 
 1. Start Web Server
-	python webapp.py
+	python webapp.py <You Local Machine IP>
+	(Do not provide localhost or 127.0.0.1 or 0.0.0.0)
 
-2. Goto URL : http://localhost:8080/ OR http://YOUR_HOST_IP:8080/
+2. Goto URL : http://YOUR_HOST_IP:8080/
 
 3. User - abhishek / admin@123 [admin!123]
