@@ -1,0 +1,7 @@
+{
+    "WINDOWS": 2, 
+    "SLES": 0, 
+    "RHEL": 1, 
+    "CENTOS": 2, 
+    "UBUNTU": 1
+}

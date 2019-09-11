@@ -1,0 +1,12 @@
+---
+- hosts: "{{hostname}}"
+  win_scheduled_task:
+    name: task name here
+    actions:
+    - path: cmd.exe
+      arguments: /c python performance.py
+    triggers:
+    - type: registration
+      repetition:
+      - interval: PT1M
+        duration: ''

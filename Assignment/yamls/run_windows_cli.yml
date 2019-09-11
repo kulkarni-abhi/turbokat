@@ -1,0 +1,9 @@
+---
+- hosts: "{{hostname}}"
+  gather_facts: no
+  tasks:
+    - name: "Executing command '{{ command }}'  on host '{{hostname}}'"
+      raw: "{{command}}"
+      register: output
+      ignore_errors: "{{ ignore_errors | default(False) }}"
+    - debug: var=output.stdout

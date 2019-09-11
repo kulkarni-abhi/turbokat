@@ -1,0 +1,110 @@
+Software Dependancies 
+=====================
+1. Python 2.7.12+
+
+2. Install Python Ansible module 2.5+
+	pip install ansible
+
+3. Install MySql python module
+	pip install MySQL-python
+
+4. Install json_tools
+	pip install json_tools
+
+5. Install python webpy framework
+	pip install web.py
+
+6. Install python winrm module
+	pip install pywinrm
+
+7. Install MySql server
+
+8. Install MySql client
+
+9. Install python and psutil module on all VMs <----------
+
+MySql Configuration
+-------------------
+
+1. MySql server configuration file - ./Constants.py
+
+2. Change following settings -
+	dbHost = '10.105.4.76'
+      	dbUser = 'admin'
+       	dbPass = 'admin'
+	dbName = 'inventory'
+	autoCommit = True
+	keepAlive = True
+	usersTable = 'users'
+	serversTable = 'servers'
+
+3. Create Database 
+	SQL> create database inventory
+
+4. Create User 
+	SQL> CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';
+        SQL> CREATE USER 'admin'@'%' IDENTIFIED BY 'admin';
+        SQL> GRANT ALL PRIVILEGES ON * . * TO 'admin'@'localhost';
+        SQL> GRANT ALL PRIVILEGES ON * . * TO 'admin'@'%';
+
+6. Create Tables 
+
+CREATE TABLE `filesystems` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `vmId` int(11) DEFAULT NULL,
+  `name` varchar(128) DEFAULT NULL,
+  `capacity` bigint(11) DEFAULT NULL,
+  `used` bigint(11) DEFAULT NULL,
+  `available` bigint(11) DEFAULT NULL,
+  `percent_used` int(11) DEFAULT NULL,
+  `timestamp` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+
+CREATE TABLE `memory` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `vmId` int(11) DEFAULT NULL,
+  `total` int(11) DEFAULT NULL,
+  `used` int(11) DEFAULT NULL,
+  `free` int(11) DEFAULT NULL,
+  `timestamp` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `processors` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `vmId` int(11) DEFAULT NULL,
+  `name` varchar(64) DEFAULT NULL,
+  `percent_used` int(11) DEFAULT NULL,
+  `timestamp` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ;
+
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(24) NOT NULL,
+  `role` varchar(24) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+7. Add admin user
+	SQL> insert into users set first_name="Abhishek", last_name="Kulkarni", username="abhishek", password="admin@123", role="admin"
+
+8. Populate dummy performance data for filesystems, memory and processors
+       The scripts are located in 'dbGeneration' dir
+       Edit SqL server details in each script and excute
+
+Start Application
+-----------------
+
+1. Start Web Server
+	python webapp.py
+
+2. Goto URL : http://localhost:8080/ OR http://YOUR_HOST_IP:8080/
+
+3. User - abhishek / admin@123 [admin!123]

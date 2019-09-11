@@ -1,0 +1,12 @@
+---
+- hosts: "{{hostname}}"
+  gather_facts: no
+  tasks:
+    - name: Wait for the windows server is able to connect
+      wait_for_connection:
+        connect_timeout: 120
+        delay: 2
+      when:
+
+    - name: Delete file if dest_file exists
+      win_file: path={{ filename }} state=absent

@@ -1,0 +1,11 @@
+- name: create scheduled task to run every minute
+  win_scheduled_task:
+    name: windows vm monitoring
+    actions:
+    - path: cmd.exe
+      arguments: /c echo hello world
+    triggers:
+    - type: registration
+      repetition:
+      - interval: PT1M
+        duration: '' # an empty value should mean it last infinitely

@@ -1,0 +1,17 @@
+---
+- hosts: "{{hostname}}"
+  gather_facts: "{{ gather_facts | default('no') }}"
+  tasks:
+    - set_fact:
+        os: ""
+        cli_to_run: "{{ command }}"
+        run_background: "{{ run_background | default(False) }}"
+        nohup: "{{ nohup | default(False) }}"
+
+    - name: "Executing command '{{ cli_to_run }}' on host '{{hostname}}'"
+      shell: "{{ cli_to_run }}"
+      register: output
+      ignore_errors: "{{ ignore_errors | default(False) }}"
+      async: "{{ timeout | default(0) }}"
+
+    - debug: var=output.stdout

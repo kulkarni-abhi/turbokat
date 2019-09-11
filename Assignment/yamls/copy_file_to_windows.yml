@@ -1,0 +1,34 @@
+---
+- hosts: "{{hostname}}"
+  gather_facts: no
+  tasks:
+    - name: Wait for the windows server is able to connect
+      wait_for_connection:
+        connect_timeout: 120
+        delay: 2
+
+    - name: Delete file if dest_file exists
+      win_file: path={{ dest_file_path }} state=absent
+
+    - name: Copying file to windows guest
+      win_copy: src={{src_file_path}} dest={{dest_file_path}}
+      register: result
+      until: result|succeeded
+      retries: 3
+      delay: 30
+
+    - name: Make sure file is copied
+      win_stat: path={{dest_file_path}}
+      register: file_info
+      until: result|succeeded
+      retries: 3
+      delay: 30
+      failed_when: not file_info.stat.exists
+      ignore_errors: True
+
+    # added for window2008R2. there are some intermittent failrues from ls file info
+    - name: Show file content
+      raw: type {{dest_file_path}}
+      register: output
+      when: not file_info.stat.exists
+    - debug: var=output.stdout

@@ -1,0 +1,15 @@
+---
+- hosts: "{{hostname}}"
+  gather_facts: no
+  tasks:
+    - name: Copying file to host
+      copy: src={{src_file_path}} dest={{dest_file_path}} mode={{ mode | default("u+rwx") }}
+      register: output
+      
+    - name: Print copy output to console
+      action: command echo item
+      with_items: output.stdout
+
+    - name: Print copy command error output to console
+      action: command echo item
+      with_items: output.stderr
