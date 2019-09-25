@@ -3,8 +3,6 @@
 """
 Shows real-time network statistics.
 
-Author: Giampaolo Rodola' <g.rodola@gmail.com>
-
 $ python scripts/nettop.py
 -----------------------------------------------------------
 total bytes:           sent: 1.49 G       received: 4.82 G

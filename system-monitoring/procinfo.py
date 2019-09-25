@@ -2,14 +2,13 @@
 
 """
 Print detailed information about a process.
-Author: Giampaolo Rodola' <g.rodola@gmail.com>
 
 $ python scripts/procinfo.py
 pid           4600
 name          chrome
 parent        4554 (bash)
 exe           /opt/google/chrome/chrome
-cwd           /home/giampaolo
+cwd           /home/kulkarniabhi
 cmdline       /opt/google/chrome/chrome
 started       2016-09-19 11:12
 cpu-tspent    27:27.68
@@ -19,7 +18,7 @@ cpu-affinity  [0, 1, 2, 3, 4, 5, 6, 7]
 memory        rss=520.5M, vms=1.9G, shared=132.6M, text=95.0M, lib=0B,
               data=816.5M, dirty=0B
 memory %      3.26
-user          giampaolo
+user          kulkarniabhi
 uids          real=1000, effective=1000, saved=1000
 uids          real=1000, effective=1000, saved=1000
 terminal      /dev/pts/2
@@ -76,8 +75,8 @@ res-limits    RLIMIT                     SOFT       HARD
 mem-maps      RSS      PATH
               381.4M   [anon]
               62.8M    /opt/google/chrome/chrome
-              15.8M    /home/giampaolo/.config/google-chrome/Default/History
-              6.6M     /home/giampaolo/.config/google-chrome/Default/Favicons
+              15.8M    /home/kulkarniabhi/.config/google-chrome/Default/History
+              6.6M     /home/kulkarniabhi/.config/google-chrome/Default/Favicons
               [...]
 """
 

@@ -3,7 +3,6 @@
 """
 A clone of top / htop.
 
-Author: Giampaolo Rodola' <g.rodola@gmail.com>
 
 $ python scripts/top.py
  CPU0  [||||                                    ]  10.9%
@@ -15,17 +14,17 @@ $ python scripts/top.py
  Processes: 347 (sleeping=273, running=1, idle=73)
  Load average: 1.10 1.28 1.34  Uptime: 8 days, 21:15:40
 
-PID    USER       NI   VIRT    RES  CPU%  MEM%     TIME+  NAME
-5368   giampaol    0   7.2G   4.3G  41.8  27.7  56:34.18  VirtualBox
-24976  giampaol    0   2.1G 487.2M  18.7   3.1  22:05.16  Web Content
-22731  giampaol    0   3.2G 596.2M  11.6   3.7  35:04.90  firefox
-1202   root        0 807.4M 288.5M  10.6   1.8  12:22.12  Xorg
-22811  giampaol    0   2.8G 741.8M   9.0   4.7   2:26.61  Web Content
-2590   giampaol    0   2.3G 579.4M   5.5   3.6  28:02.70  compiz
-22990  giampaol    0   3.0G   1.2G   4.2   7.6   4:30.32  Web Content
-18412  giampaol    0  90.1M  14.5M   3.5   0.1   0:00.26  python3
-26971  netdata     0  20.8M   3.9M   2.9   0.0   3:17.14  apps.plugin
-2421   giampaol    0   3.3G  36.9M   2.3   0.2  57:14.21  pulseaudio
+PID    USER           NI   VIRT    RES  CPU%  MEM%     TIME+  NAME
+5368   kulkarniabhi    0   7.2G   4.3G  41.8  27.7  56:34.18  VirtualBox
+24976  kulkarniabhi    0   2.1G 487.2M  18.7   3.1  22:05.16  Web Content
+22731  kulkarniabhi    0   3.2G 596.2M  11.6   3.7  35:04.90  firefox
+1202   root            0 807.4M 288.5M  10.6   1.8  12:22.12  Xorg
+22811  kulkarniabhi    0   2.8G 741.8M   9.0   4.7   2:26.61  Web Content
+2590   kulkarniabhi    0   2.3G 579.4M   5.5   3.6  28:02.70  compiz
+22990  kulkarniabhi    0   3.0G   1.2G   4.2   7.6   4:30.32  Web Content
+18412  kulkarniabhi    0  90.1M  14.5M   3.5   0.1   0:00.26  python3
+26971  netdata         0  20.8M   3.9M   2.9   0.0   3:17.14  apps.plugin
+2421   kulkarniabhi    0   3.3G  36.9M   2.3   0.2  57:14.21  pulseaudio
 ...
 """
 

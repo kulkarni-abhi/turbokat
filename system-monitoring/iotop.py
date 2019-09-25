@@ -12,18 +12,17 @@ Example output:
 
 $ python scripts/iotop.py
 Total DISK READ: 0.00 B/s | Total DISK WRITE: 472.00 K/s
-PID   USER      DISK READ  DISK WRITE  COMMAND
-13155 giampao    0.00 B/s  428.00 K/s  /usr/bin/google-chrome-beta
-3260  giampao    0.00 B/s    0.00 B/s  bash
-3779  giampao    0.00 B/s    0.00 B/s  gnome-session --session=ubuntu
-3830  giampao    0.00 B/s    0.00 B/s  /usr/bin/dbus-launch
-3831  giampao    0.00 B/s    0.00 B/s  //bin/dbus-daemon --fork --print-pid 5
-3841  giampao    0.00 B/s    0.00 B/s  /usr/lib/at-spi-bus-launcher
-3845  giampao    0.00 B/s    0.00 B/s  /bin/dbus-daemon
-3848  giampao    0.00 B/s    0.00 B/s  /usr/lib/at-spi2-core/at-spi2-registryd
-3862  giampao    0.00 B/s    0.00 B/s  /usr/lib/gnome-settings-daemon
+PID   USER            DISK READ  DISK WRITE  COMMAND
+13155 kulkarniabhi    0.00 B/s  428.00 K/s  /usr/bin/google-chrome-beta
+3260  kulkarniabhi    0.00 B/s    0.00 B/s  bash
+3779  kulkarniabhi    0.00 B/s    0.00 B/s  gnome-session --session=ubuntu
+3830  kulkarniabhi    0.00 B/s    0.00 B/s  /usr/bin/dbus-launch
+3831  kulkarniabhi    0.00 B/s    0.00 B/s  //bin/dbus-daemon --fork --print-pid 5
+3841  kulkarniabhi    0.00 B/s    0.00 B/s  /usr/lib/at-spi-bus-launcher
+3845  kulkarniabhi    0.00 B/s    0.00 B/s  /bin/dbus-daemon
+3848  kulkarniabhi    0.00 B/s    0.00 B/s  /usr/lib/at-spi2-core/at-spi2-registryd
+3862  kulkarniabhi    0.00 B/s    0.00 B/s  /usr/lib/gnome-settings-daemon
 
-Author: Giampaolo Rodola' <g.rodola@gmail.com>
 """
 
 import atexit
