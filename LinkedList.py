@@ -66,14 +66,15 @@ class LinkedList():
             current = next
         self.head = previous 
 
-llist = LinkedList()
-for i in range(10):
-    llist.insert(i)
+if __name__== "__main__":
+    llist = LinkedList()
+    for i in range(10):
+        llist.insert(i)
 
-llist.traverse()
-print "\n"
-llist.reverse()
-llist.traverse()
-print "\n"
-llist.delete(4)
-llist.traverse()
+    llist.traverse()
+    print "\n"
+    llist.reverse()
+    llist.traverse()
+    print "\n"
+    llist.delete(4)
+    llist.traverse()
