@@ -1,5 +1,18 @@
 from LinkedList import LinkedList
 
+"""
+A program to find intersection node of two singly linked lists
+
+
+list1:	4 ---> 8 ---> 15
+                        \ 
+                         42 ---> 99
+                        /
+list2:        16 ---> 23
+
+Intersection Point = 42
+"""
+
 def get_length(head):
     current = head
     cnt = 0
@@ -24,6 +37,9 @@ def find_intersection_node(head1,head2):
     while  head1 and head2:
         if  head1.data == head2.data and \
             id(head1.data) == id(head2.data):
+            """
+            Check if data and memory location of both the values are same.
+            """
             return head1.data
         head1 = head1.next
         head2 = head2.next
