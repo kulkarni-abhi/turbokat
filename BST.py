@@ -34,6 +34,35 @@ class BinarySearchTree():
                     else:
                         root = root.right
 
+    def delete(self, root, data):
+        if root is None:
+            return None
+        if data < root.data:
+            root.left = self.delete(root.left, data)
+        elif data > root.data:
+            root.right = self.delete(root.right, data)
+        else:
+            #delete node with one child
+            if root.left is None:
+                temp = root.right
+                del root.left
+                del root.right
+                del root.data
+                del root
+                return temp
+            elif root.right is None:
+                temp = root.left
+                del root.left
+                del root.right
+                del root.data
+                del root
+                return temp
+            else:
+                temp = self.get_successor(root.right)
+                root.data = temp.data
+                root.right = self.delete(root.right, temp.data)
+        return root
+
     def inorder(self, root):
         if root:
             self.inorder(root.left)
@@ -79,7 +108,14 @@ class BinarySearchTree():
         else:
             return self.get_max(root.right)
 
+    def get_successor(self, node):
+        current = node
+        while current.left:
+            current = current.left
+        return current
+
 mylist = [8,3,1,6,4,7,10,14,13]
+mylist = [20,15,25,10,18,12,17,19,16]
 
 tree = BinarySearchTree()
 for xdata in mylist:
@@ -94,10 +130,14 @@ tree.preorder(node)
 print "\n"
 tree.postorder(node)
 print "\n"
-print tree.search(node, 4)
+print tree.search(node, 19)
 print "\n"
 print tree.size(node)
 print "\n"
 print tree.get_min(node)
 print "\n"
 print tree.get_max(node)
+
+tree.delete(node, 15)
+node = tree.get_root()
+print tree.preorder(node)
