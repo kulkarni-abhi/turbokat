@@ -114,30 +114,98 @@ class BinarySearchTree():
             current = current.left
         return current
 
-mylist = [8,3,1,6,4,7,10,14,13]
-mylist = [20,15,25,10,18,12,17,19,16]
+    def get_height(self, root):
+        if root is None:
+            return 0
+
+        leftHeight = self.get_height(root.left)
+        rightHeight = self.get_height(root.right)
+
+        if leftHeight < rightHeight:
+            return rightHeight + 1
+        else:
+            return leftHeight + 1
+
+    def get_node_count(self, node, current, level):
+        if node is None:
+            return 0
+
+        if current == level:
+            return 1
+
+        return self.get_node_count(node.left, current + 1,
+                                   level) + self.get_node_count(
+                                       node.right, current + 1, level)
+
+    def get_node_count_per_level(self, root):
+        height = self.get_height(root)
+        for i in range(height):
+            print "Node count at level #{0} = {1}".format(
+                i + 1, self.get_node_count(root, 0, i))
+
+    def kth_smallest(self, root, k):
+        self.count = 0
+        self.result = 0
+
+        def limited_inorder(root):
+            if self.count < k:
+                if root.left is not None:
+                    limited_inorder(root.left)
+                self.count += 1
+                if self.count == k:
+                    self.result = root.data
+                    return
+                if root.right is not None:
+                    limited_inorder(root.right)
+        if root is not None:
+            limited_inorder(root)
+        return self.result
+
+mylist = [8, 3, 1, 6, 4, 7, 10, 14, 13]
+mylist = [20, 15, 25, 10, 18, 12, 17, 19, 16]
+mylist = [15, 10, 20, 8, 12, 18, 30, 16, 19]
 
 tree = BinarySearchTree()
 for xdata in mylist:
     tree.insert(xdata)
 
 node = tree.get_root()
-print node.data
-print "\n"
-tree.inorder(node)
-print "\n"
-tree.preorder(node)
-print "\n"
-tree.postorder(node)
-print "\n"
-print tree.search(node, 19)
-print "\n"
-print tree.size(node)
-print "\n"
-print tree.get_min(node)
-print "\n"
-print tree.get_max(node)
+print "Root Node = {0}".format(node.data)
 
-tree.delete(node, 15)
+print "\nIn-order ==> ",
+tree.inorder(node)
+
+print "\n\nPre-order ==> ",
+tree.preorder(node)
+
+print "\n\nPost-order ==> ",
+tree.postorder(node)
+
+print "\n\nData {0} found = {1}".format(19, tree.search(node, 19))
+
+print "\nSize of a Tree = {0}".format(tree.size(node))
+
+print "\nSmallest Node = {0}".format(tree.get_min(node))
+
+print "\nLargest Node = {0}".format(tree.get_max(node))
+
+print "\nHeight of the Tree = {0}\n".format(tree.get_height(node))
+
+tree.get_node_count_per_level(node)
+
+print "\n3rd Smallest element = {0}".format(tree.kth_smallest(node, 3))
+
+print "\nDelete node with data 20"
+tree.delete(node, 20)
+
 node = tree.get_root()
-print tree.preorder(node)
+print "\nNew root after delete node = {0}".format(node.data)
+
+print "\nIn-order after delete node",
+tree.inorder(node)
+
+print "\n\nPre-order after delete node",
+tree.preorder(node)
+
+print "\n\nPost-order after delete node",
+tree.postorder(node)
