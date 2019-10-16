@@ -161,6 +161,53 @@ class BinarySearchTree():
             limited_inorder(root)
         return self.result
 
+    def kth_largest(self, root, k): 
+        curr = root  
+        Klargest = None
+  
+        # count variable to keep count  
+        # of visited Nodes  
+        count = 0
+  
+        while (curr != None): 
+            # if right child is None  
+            if (curr.right == None):  
+                # first increment count and 
+                # check if count = k 
+                count += 1
+                if (count == k):  
+                    Klargest = curr  
+  
+                # otherwise move to the left child  
+                curr = curr.left 
+            else:  
+                # find inorder successor of  
+                # current Node  
+                succ = curr.right  
+                while (succ.left != None and succ.left != curr):  
+                    succ = succ.left  
+  
+                if (succ.left == None):  
+                    # set left child of successor  
+                    # to the current Node  
+                    succ.left = curr  
+
+                    # move current to its right  
+                    curr = curr.right 
+  
+                # restoring the tree back to   
+                # original binary search tree 
+                # removing threaded links  
+                else: 
+                    succ.left = None
+                    count += 1
+                    if (count == k):  
+                        Klargest = curr  
+  
+                    # move current to its left child  
+                    curr = curr.left 
+        return Klargest 
+
 mylist = [8, 3, 1, 6, 4, 7, 10, 14, 13]
 mylist = [20, 15, 25, 10, 18, 12, 17, 19, 16]
 mylist = [15, 10, 20, 8, 12, 18, 30, 16, 19]
@@ -194,6 +241,9 @@ print "\nHeight of the Tree = {0}\n".format(tree.get_height(node))
 tree.get_node_count_per_level(node)
 
 print "\n3rd Smallest element = {0}".format(tree.kth_smallest(node, 3))
+
+print "\n3rd Largest element = {0}".format(tree.kth_largest(node, 3).data)
+
 
 print "\nDelete node with data 20"
 tree.delete(node, 20)
