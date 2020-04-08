@@ -49,6 +49,18 @@ MySql Configuration
 
 6. Create Tables 
 
+CREATE TABLE `servers` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `hostname` varchar(256),
+  `ipAddress` varchar(64),
+  `os` varchar(32),
+  `description` varchar(1024),
+  `owner` varchar(128),
+  `username` varchar(128),
+  `passwd` varchar(128),
+  PRIMARY KEY (`id`)
+);
+
 CREATE TABLE `filesystems` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `vmId` int(11) DEFAULT NULL,
@@ -98,6 +110,12 @@ CREATE TABLE `users` (
 8. Populate dummy performance data for filesystems, memory and processors
        The scripts are located in 'dbGeneration' dir
        Edit SqL server details in each script and excute
+       a. python dbGeneration/servers.py
+       b. python dbGeneration/filesystems.py
+       c. python dbGeneration/processors.py
+       d. python dbGeneration/memory.py
+
+9. Update ansible hosts file.
 
 Start Application
 -----------------

@@ -22,7 +22,7 @@ for vmId in vmIds:
             }
 
             db = MySql(
-                host='10.105.4.76',
+                host='10.198.36.31',
                 db='inventory',
                 user='admin',
                 passwd='admin',

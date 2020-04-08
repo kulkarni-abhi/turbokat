@@ -1,0 +1,5 @@
+[ansible-host]
+10.198.36.31 ansible_ssh_port=22 ansible_ssh_user=root ansible_ssh_pass=ca$hc0w	 ansible_connection=ssh ansible_sudo_pass=ca$hc0w
+[taf-controller]
+10.198.36.228 ansible_ssh_port=22 ansible_ssh_user=root ansible_ssh_pass=ca$hc0w  ansible_connection=ssh ansible_sudo_pass=ca$hc0w
+

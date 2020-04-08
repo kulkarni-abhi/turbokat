@@ -3,7 +3,6 @@ from datetime import datetime
 import random
 from MySql import MySql
 
-ykljkl
 ts = time.time()
 
 table = 'filesystems'
@@ -26,7 +25,7 @@ for vmId in vmIds:
             values['percent_used'] = values['used'] * 100 / values['capacity']
 
             db = MySql(
-                host='10.105.4.76',
+                host='10.198.36.31',
                 db='inventory',
                 user='admin',
                 passwd='admin',

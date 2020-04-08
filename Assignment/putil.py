@@ -1,3 +1,4 @@
+import re
 import os
 import json
 import time
@@ -194,7 +195,7 @@ def schedule_linux_task(hostname,id,webserver):
     cmd = "crontab -l > /tmp/cron.list"
     run_remote_cmd(hostname, 'linux', cmd)
 
-    cmd = "echo \"* * * * * python /root/performance.py {0} {1}\" >> /tmp/cron.list".format(webserver,id)
+    cmd = "echo '* * * * * python /root/performance.py {0} {1}' >> /tmp/cron.list".format(webserver,id)
     run_remote_cmd(hostname, 'linux', cmd)
 
     cmd = "crontab /tmp/cron.list"

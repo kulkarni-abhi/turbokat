@@ -1,4 +1,4 @@
-dbHost = '10.105.4.76'
+dbHost = '10.198.36.31'
 dbUser = 'admin'
 dbPass = 'admin'
 dbName = 'inventory'
