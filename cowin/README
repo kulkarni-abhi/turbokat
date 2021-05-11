@@ -1,0 +1,20 @@
+Install instrictions
+--------------------
+
+1. Install python3 on your system
+2. Run following command 
+	pip install -r requirements.txt
+
+	or
+
+	pip3 install -r requirements.txt
+
+
+
+RUN 
+---
+	1. First, register yourself on the COWIN app manually. (Not needed if already registered)
+	2. Add members to your account (No needed if already added members)
+	3. Then run the following command.
+
+	python covid-vaccine-slot-booking.py
