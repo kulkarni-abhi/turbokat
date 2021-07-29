@@ -18,4 +18,4 @@ docker run -p 80:80/tcp "kulkarniabhishek/helloworld:latest"
 
 Dockerhub link: https://hub.docker.com/r/kulkarniabhishek/helloworld/
 
-Github link: https://github.com/kulkarniabhishek/docker-helloworld
+Github link: https://github.com/kulkarni-abhi/turbokat/tree/master/docker-helloworld
