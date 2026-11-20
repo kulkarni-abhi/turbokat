@@ -1,7 +1,7 @@
 requests
 tabulate
 inputimeout
-svglib==1.0.1
+svglib==2.3.1
 reportlab
 pyinstaller
 pysimplegui
